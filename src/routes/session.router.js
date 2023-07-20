@@ -13,7 +13,7 @@ router.post('/login',async(req,res)=>{
     const {email, password} = req.body
     const user = await userModel.findOne({email,password})
     if(!user) return res.status(400).send({status:"error",error:"Invalid username or password"})
-    else if (email !== "adminCoder@coder.com" || password !== "adminCod3r123" ){
+    else if (email == "adminCoder@coder.com" || password == "adminCod3r123" ){
         req.session.admin = true
     }
     req.session.user = {
